@@ -1,0 +1,14 @@
+2025-01-08 17:51:28.413 EST [40402] LOG:  starting PostgreSQL 16.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 14.2.1 20240910, 64-bit
+2025-01-08 17:51:28.413 EST [40402] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-01-08 17:51:28.414 EST [40402] FATAL:  could not create lock file "/run/postgresql/.s.PGSQL.5432.lock": No such file or directory
+2025-01-08 17:51:28.416 EST [40402] LOG:  database system is shut down
+2025-01-08 17:52:32.689 EST [40810] LOG:  starting PostgreSQL 16.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 14.2.1 20240910, 64-bit
+2025-01-08 17:52:32.690 EST [40810] LOG:  listening on IPv4 address "127.0.0.1", port 5432
+2025-01-08 17:52:32.691 EST [40810] FATAL:  could not create lock file "/run/postgresql/.s.PGSQL.5432.lock": No such file or directory
+2025-01-08 17:52:32.693 EST [40810] LOG:  database system is shut down
+2025-01-08 17:53:47.748 EST [41328] LOG:  starting PostgreSQL 16.6 on x86_64-pc-linux-gnu, compiled by gcc (GCC) 14.2.1 20240910, 64-bit
+2025-01-08 17:53:47.749 EST [41328] LOG:  could not bind IPv4 address "127.0.0.1": Address already in use
+2025-01-08 17:53:47.749 EST [41328] HINT:  Is another postmaster already running on port 5432? If not, wait a few seconds and retry.
+2025-01-08 17:53:47.749 EST [41328] WARNING:  could not create listen socket for "localhost"
+2025-01-08 17:53:47.749 EST [41328] FATAL:  could not create any TCP/IP sockets
+2025-01-08 17:53:47.751 EST [41328] LOG:  database system is shut down
