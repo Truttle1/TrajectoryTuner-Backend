@@ -9,8 +9,8 @@ export const schema = buildSchema(`
     }
     
     type Coin {
-        x: Int!
-        y: Int!
+        x: Float!
+        y: Float!
         bad: Boolean!
     }
 
@@ -25,6 +25,7 @@ export const schema = buildSchema(`
 
     type Query {
         getLevel(jwt: String!, level: Int!): Level!
+        getUser(jwt: String!): User!
     }
 
     type Mutation {

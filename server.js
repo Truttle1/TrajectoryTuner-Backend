@@ -1,4 +1,5 @@
 var express = require("express")
+const cors = require('cors');
 var { createHandler } = require("graphql-http/lib/use/express")
  
 import {schema} from './schema'
@@ -6,7 +7,15 @@ import {resolvers} from './resolvers';
 
  
 var app = express();
- 
+
+app.use(cors({
+  methods: 'GET,POST,PATCH,DELETE,OPTIONS',
+  optionsSuccessStatus: 200,
+  origin: 'http://localhost:5173'
+}));
+
+app.options('*', cors());
+
 app.all(
   "/graphql",
   createHandler({

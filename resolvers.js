@@ -119,6 +119,15 @@ export var resolvers = {
         return new Error("You do not have access to that");
     },
 
+    async getUser({jwt}) {
+        const payload = verifyToken(jwt);
+
+        if(payload) {
+            return getUserByUsername(payload.username);
+        }
+        return new Error("You do not have access to that");
+    },
+
     async submitSolution({jwt, level, expression}) {
         const payload = verifyToken(jwt);
 
@@ -127,7 +136,7 @@ export var resolvers = {
             console.log(user);
             if (user.level_on >= level) {
                 const level_data = LevelList[level];
-                const result = level_data.checkWin(expression);
+                const result = await level_data.checkWin(expression);
                 if(result) {
                     if(user.level_on == level) {
                         await incrementLevel(user);
