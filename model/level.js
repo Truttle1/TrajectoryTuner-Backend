@@ -78,7 +78,7 @@ export class Level {
         let x = 0;
         let y = math.evaluate(expression, {x: x});
         let derivative = math.derivative(expression, 'x').evaluate({ x: x });
-        let timeOutCountdown = 9999;
+        let timeOutCountdown = 99999;
         let collected = 0;
         while(!dead && !won && timeOutCountdown > 0) {
             timeOutCountdown -= 1;  //Make sure we don't get stuck forever
@@ -106,11 +106,10 @@ export class Level {
             x += xSpd * this.animationSpeed;
             y += ySpd * this.animationSpeed;
             derivative = dy; // Update the derivative for the next frame
-            
             // Check if player is colliding with a coin
             this.coins.forEach(coin => {
                 const distance = Math.sqrt(Math.pow(coin.x - x, 2) + Math.pow(coin.y - y, 2));
-                if (distance <= 0.3 && !coin.collected) {
+                if (distance <= 0.6 && !coin.collected) {
                     if(!coin.bad) {
                         coin.collect();
                         collected += 1;
@@ -138,7 +137,7 @@ function convertOldToNew(oldLevels) {
       const data = oldLevels[id];
   
       // data.level is an array of [x, y, collected, deadly]
-      const coinsArray = data.level.map(([x, y, , deadly]) => {
+      const coinsArray = data.level.map(([x, y, collected, deadly]) => {
         // We ignore the 'collected' value since all coins start uncollected
         return new Coin(x, y, deadly);
       });
